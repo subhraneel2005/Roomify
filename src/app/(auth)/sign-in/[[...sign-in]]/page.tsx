@@ -1,12 +1,12 @@
-import { SignUp } from '@clerk/nextjs'
+import { SignIn } from '@clerk/nextjs'
 import React from 'react'
 
-function SignIn() {
+function SignsIn() {
   return (
     <main className='min-h-screen w-full flex-center p-3'>
-        <SignUp/>
+        <SignIn/>
     </main>
   )
 }
 
-export default SignIn
+export default SignsIn
