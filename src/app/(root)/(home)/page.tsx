@@ -1,6 +1,7 @@
 import { url } from 'inspector'
 import React from 'react'
 import heroImage from "../../../../public/images/hero-background.png"
+import MeetingLists from '@/components/MeetingLists';
 
 function Home() {
 
@@ -22,6 +23,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <MeetingLists/>
     </section>
   )
 }
