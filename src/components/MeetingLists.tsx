@@ -3,10 +3,15 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import Cards from './Cards'
 import { useRouter } from 'next/navigation'
+import MeetingModals from './MeetingModals'
 
 function MeetingLists() {
 
     const router = useRouter();
+
+    const createMeeting = () => {
+
+    }
 
     const [meeting, setMeeting] = useState<'isJoinMeeting' | 'isScheduleMeeting' | 'isInstantMeeting' | undefined>();
 
@@ -22,8 +27,8 @@ function MeetingLists() {
         <Cards
             icon = "/icons/join-meeting.svg"
             title = "Join Meeting"
-            description="Join a meeting"
-            handleClick = {() => setMeeting('isInstantMeeting')}
+            description="Join a meeting connect with people"
+            handleClick = {() => setMeeting('isJoinMeeting')}
             className = "bg-pink-600"
         />
         <Cards
@@ -39,6 +44,14 @@ function MeetingLists() {
             description="Check out your recordings"
             handleClick = {() => router.push("/recordings")}
             className = "bg-sky-600"
+        />
+        <MeetingModals
+            isOpen = {meeting === "isInstantMeeting"}
+            onClose = {() => setMeeting(undefined)}
+            title = "Start an instant meeting!"
+            buttonText = "Start meeting"
+            className = "text-center"
+            handleClick = {createMeeting}
         />
     </section>
   )
