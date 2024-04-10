@@ -38,10 +38,10 @@ function MeetingModals({isOpen, onClose, title, handleClick,buttonText, children
                         />
                     </div>
                 )}
-                <h2 className={cn("text-3xl font-semibold", className)}>
+                <h1 className={cn("text-3xl font-semibold", className)}>
                     <DialogTitle>{title}</DialogTitle>
                    {children} 
-                </h2>
+                </h1>
                 <Button className='focus-visible:ring-0 focus-visible:ring-offset-0 bg-blue-2' onClick={handleClick}>
                     {buttonIcon && (
                         <Image src={buttonIcon} alt='buttonIcon' width={14} height={14}/>
