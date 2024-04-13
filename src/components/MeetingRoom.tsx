@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { LayoutList } from 'lucide-react';
+import { LayoutList, Users } from 'lucide-react';
 
 
 type CallLayoutType = "grid" | "speaker-left" | "speaker-right";
@@ -38,7 +38,7 @@ function MeetingRoom() {
         <div className='flex size-full max-w-[1000px] items-center'>
           <CallLayout/>
         </div>
-        <div className={cn('h-[calc(100vh-87px)] hidden ml-3', {"show-block" : showParticipants} )}>
+        <div className={cn('h-[calc(100vh-87px)] hidden ml-3', {"block" : showParticipants} )}>
           <CallParticipantsList onClose={() => setShowParticipants(false)}/>
         </div>
       </div>
@@ -68,6 +68,13 @@ function MeetingRoom() {
           </DropdownMenuContent>
         </DropdownMenu>
           <CallStatsButton/>
+          <button onClick={() =>
+            setShowParticipants((prev) => !prev)
+          }>
+              <div className='cursor-pointer rounded-xl bg-dark-1'>
+                <Users size={25}/>
+              </div>
+          </button>
       </div>
     </section>
   )
