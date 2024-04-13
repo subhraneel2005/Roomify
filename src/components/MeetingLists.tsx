@@ -7,6 +7,7 @@ import MeetingModals from './MeetingModals'
 import { useUser } from '@clerk/nextjs'
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk'
 import { useToast } from "@/components/ui/use-toast"
+import { Input } from './ui/input'
 
 
 function MeetingLists() {
@@ -94,6 +95,20 @@ function MeetingLists() {
             className = "text-center"
             handleClick = {createMeeting}
         />
+        <MeetingModals
+            isOpen = {meeting === "isJoinMeeting"}
+            onClose = {() => setMeeting(undefined)}
+            title = "Enter the Link here"
+            buttonText = "Join meeting"
+            className = "text-center mb-4"
+            handleClick = {() => router.push(value.link)}
+        >
+            <Input
+            placeholder='Enter joining link here'
+            className='border-none bg-dark-2 text-white'
+            onChange={(e) => setValue({...value, link:e.target.value})}/>
+        </MeetingModals>
+
     </section>
   )
 }
